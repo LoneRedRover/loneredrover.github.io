@@ -74,6 +74,9 @@ nav {
   position: absolute;
   inset: 0;
   background: radial-gradient(ellipse at 60% 40%, rgba(163,230,53,.12) 0%, transparent 70%);
+  /* Decorative only. Without this the layer sits above the hero's in-flow
+     content and eats every click on the links and buttons beneath it. */
+  pointer-events: none;
 }
 .hero-eyebrow {
   display: inline-block;
