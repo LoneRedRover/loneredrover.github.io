@@ -32,12 +32,17 @@
     <h1 class="section-title">Someone sent you a night of mahjong</h1>
     <p>One person at the table recorded the games in Mahjong Compass and sent them to you, so you do not have to write them up again. The link you tapped carries the whole night.</p>
 
+    <div id="open-here" hidden>
+      <h2>If you have the app</h2>
+      <p>This page is holding the night you were sent. Tap below and it opens in Mahjong Compass on this iPhone or iPad. If nothing happens, the app is not installed yet.</p>
+      <p><a id="open-app" href="#" class="btn btn-primary" style="display:inline-block; margin-top: .5rem;">Open in Mahjong Compass</a></p>
+    </div>
+
     <h2>If you do not have the app yet</h2>
     <p>Get Mahjong Compass from the App Store, then go back to the message and tap the link again. The games open in the app, you say who is who, and they join your own record. Receiving a night is free.</p>
+    <p>If the link brings you back to this page with the app installed, use the button above.</p>
     <p><a href="https://apps.apple.com/app/id6809415246?ct=website-session" class="btn btn-primary" style="display:inline-block; margin-top: .5rem;" target="_blank" rel="noopener">Download on the App Store</a></p>
 
-    <h2>If you have the app and landed here anyway</h2>
-    <p>Go back to the message, touch and hold the link, and choose <strong>Open in Mahjong Compass</strong>. A newly installed app can take a little while to start answering its links.</p>
     <p>The link only opens the app on an iPhone or iPad. On a Mac or a PC it brings you to this page.</p>
 
     <h2>What the link holds</h2>
@@ -53,6 +58,21 @@
   </div>
   <div class="footer-copy">&copy; 2026 Lone Red Rover LLC. All rights reserved.</div>
 </footer>
+
+<!--
+  The only script on the site. The session is in the part of the address
+  after the #, which never reaches the server, so the page itself has to be
+  the one to pass it to the app. Nothing here sends it anywhere else.
+-->
+<script>
+  (function () {
+    var session = window.location.hash.slice(1);
+    if (!session) { return; }
+    document.getElementById('open-app').href =
+      'mahjongcompass://session?d=' + encodeURIComponent(session);
+    document.getElementById('open-here').hidden = false;
+  })();
+</script>
 
 </body>
 </html>
