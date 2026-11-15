@@ -1,0 +1,19 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["Z92UGQ8R8U.com.loneredrover.MahjongCompass"],
+        "components": [
+          {
+            "/": "/mahjong-compass/session",
+            "comment": "A session sent from another player's Mahjong Compass."
+          },
+          {
+            "/": "/mahjong-compass/session/*",
+            "comment": "The same, with the trailing slash the app writes."
+          }
+        ]
+      }
+    ]
+  }
+}
