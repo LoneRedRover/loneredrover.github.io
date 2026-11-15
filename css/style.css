@@ -60,6 +60,62 @@ nav {
 }
 .nav-links a:hover { color: var(--lime); text-decoration: none; }
 
+/* Our Apps dropdown. Opens on hover with a pointer, and on focus-within so a
+   tap or the keyboard opens it too. */
+.nav-menu { position: relative; display: flex; align-items: center; }
+.nav-menu-btn {
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: .9rem;
+  font-weight: 500;
+  color: #cbd5e1;
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  white-space: nowrap;
+  transition: color .15s;
+}
+.nav-menu-btn::after {
+  content: "";
+  width: 0; height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid currentColor;
+  transition: transform .15s;
+}
+.nav-menu:hover .nav-menu-btn,
+.nav-menu:focus-within .nav-menu-btn { color: var(--lime); }
+.nav-menu:hover .nav-menu-btn::after,
+.nav-menu:focus-within .nav-menu-btn::after { transform: rotate(180deg); }
+.nav-menu-list {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 190px;
+  display: none;
+  flex-direction: column;
+  background: var(--white);
+  background-clip: padding-box;
+  border-top: .75rem solid transparent;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.nav-menu:hover .nav-menu-list,
+.nav-menu:focus-within .nav-menu-list { display: flex; }
+.nav-menu-list a {
+  color: var(--navy);
+  font-size: .9rem;
+  font-weight: 600;
+  padding: .7rem 1rem;
+  white-space: nowrap;
+}
+.nav-menu-list a:hover { color: var(--green); background: var(--light); text-decoration: none; }
+
 /* ── HERO ── */
 .hero {
   background: linear-gradient(135deg, var(--navy) 0%, var(--green-dark) 100%);
